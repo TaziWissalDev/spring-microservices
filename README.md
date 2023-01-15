@@ -1,5 +1,5 @@
 # spring-microservices
- the application contains an example of managing customers with their bills in microservices architecture using spring boot framework.
+ the application contains an example of managing customers with their bills in microservices architecture using spring boot as a backend framework and Angular as a frontend framework.
  
  ![image](https://user-images.githubusercontent.com/78910504/212566817-4ac66bd2-2946-46f1-8d93-7a23119a28c2.png)
 

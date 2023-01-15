@@ -1,0 +1,56 @@
+<div class="modal fade" id="addCustomer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    <span [hidden]="modeSpec.method !== 'add'" translate>Add customer
+                    </span>
+                    <span [hidden]="modeSpec.method !== 'edit'" translate>Edit customer</span>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" (click)="hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="customerForm" (ngSubmit)="save()">
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control shadow-sm" #fullname aria-describedby="basic-addon1"
+                            formControlName="full_name" required [ngClass]="{'is-invalid':  customerForm.get('full_name')?.errors ||
+                    (customerForm.get('full_name')?.dirty || customerForm.get('full_name')?.touched) }" />
+                        <div [hidden]="!customerForm.get('full_name')?.errors" class="invalid-feedback" translate>
+                            content_required
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="text" #email required class="form-control shadow-sm"
+                            aria-describedby="basic-addon1" formControlName="email" required [ngClass]="{'is-invalid':  customerForm.get('email')?.errors ||
+                    (customerForm.get('email')?.dirty
+                    ||
+                    customerForm.get('email')?.touched)
+                    }" />
+                        <div [hidden]="!customerForm.get('email')?.errors" class="invalid-feedback" translate>
+                            content_required
+                        </div>
+                    </div>
+
+                    <div class="modal-footer space-top-footer">
+                        <button *ngIf="modeSpec.method === 'add'" type="submit" class="btn btn-primary"
+                            style="float: right;" [disabled]="!customerForm.valid"><span translate>Ajouter</span>
+                        </button>
+                        <button *ngIf="modeSpec.method === 'edit'" type="submit" class="btn btn-primary"
+                            style="float: right;" [disabled]="!customerForm.valid"><span>Modifer</span>
+                        </button>
+                        <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hide()"
+                            style="float: right;">
+                            <span translate>Fermer</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

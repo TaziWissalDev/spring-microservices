@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="">
+        <button class="btn btn-outline-success" type="button">Add Product</button>
+    </div>
+    <div class="card border-0 shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-centered table-nowrap mb-0 rounded">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="border-0 rounded-start">ID</th>
+                            <th class="border-0">Name</th>
+                            <th class="border-0">Price</th>
+                            <th class="border-0">Quantity</th>
+                            <th class="border-0">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let product of data?._embedded?.products">
+    <!-- Item -->
+                        <tr>
+                            <td><a href="#" class="text-primary fw-bold">{{product?.id}}</a> </td>
+                            <td class="fw-bold d-flex align-items-center">
+                                
+                                {{product?.name}}
+                            </td>
+                            <td>
+                                <fa-icon [icon]="faDollar" ></fa-icon>
+                                {{product?.price}}
+                            </td>
+                            <td>
+                                {{product?.quantity}}
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-warning d-inline-flex align-items-center me-2">Edit <fa-icon [icon]="faPen" ></fa-icon></button>
+                                <button type="button" class="btn btn-danger d-inline-flex align-items-center">Delete <fa-icon [icon]="faTrash" ></fa-icon></button>
+                            </td>
+                           
+                        </tr>
+                        <!-- End of Item -->
+                        </ng-container>
+                    
+
+                      
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

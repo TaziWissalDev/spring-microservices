@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="">
+        <button class="btn btn-outline-success" type="button">Add Customer</button>
+    </div>
+    <div class="card border-0 shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-centered table-nowrap mb-0 rounded">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="border-0 rounded-start">ID</th>
+                            <th class="border-0">Name</th>
+                            <th class="border-0">email</th>
+                            <th class="border-0">Bills</th>
+                            <th class="border-0">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let customer of data?._embedded?.customers">
+    <!-- Item -->
+                        <tr>
+                            <td><a href="#" class="text-primary fw-bold">{{customer?.id}}</a> </td>
+                            <td class="fw-bold d-flex align-items-center">
+                                
+                                {{customer?.name}}
+                            </td>
+                            <td>
+                                {{customer?.email}}
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-primary d-inline-flex align-items-center me-2" (click)="showModal(customer?.id)">Bills <fa-icon [icon]="faMoneyBill1Wave" ></fa-icon></button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-warning d-inline-flex align-items-center me-2">Edit <fa-icon [icon]="faPen" ></fa-icon></button>
+                                <button type="button" class="btn btn-danger d-inline-flex align-items-center">Delete <fa-icon [icon]="faTrash" ></fa-icon></button>
+                            </td>
+                           
+                        </tr>
+                        <!-- End of Item -->
+                        </ng-container>
+                    
+
+                      
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<app-add-component #addCustomer></app-add-component>
